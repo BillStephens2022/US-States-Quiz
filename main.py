@@ -9,9 +9,20 @@ turtle.shape(image)
 
 game_over = False
 
+data = pandas.read_csv("50_states.csv")
+all_states = data.state.to_list()
+
+
 while game_over == False:
     answer_state = screen.textinput(title="Guess the State", prompt="What's another state's name?")
-    
+    if answer_state in all_states:
+        t = turtle.Turtle()
+        t.hideturtle()
+        t.penup()
+        state_data = data[data.state == answer_state]
+        t.goto(int(state_data.x), int(state_data.y))
+        t.write(answer_state)
+        
 
 
 screen.exitonclick()
