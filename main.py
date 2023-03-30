@@ -16,7 +16,7 @@ guessed_states = []
 while len(guessed_states) < 50:
     # .title() converts the user's answer to Title case.
     answer_state = screen.textinput(title=f"{len(guessed_states)} / 50 States Correct", 
-                                    prompt="What's another state's name?").title()
+                                    prompt="What's another state's name?\n\nType 'exit' to exit game.\n").title()
     if answer_state == "Exit":
         missing_states = []
         for state in all_states:
